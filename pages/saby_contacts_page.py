@@ -45,5 +45,3 @@ class ContactsSabyPage(BasePage):
 
     def should_be_correct_title(self, name_region):
         assert name_region in self.browser.title, "Название региона отсутствует в заголовке страницы"
-
-
