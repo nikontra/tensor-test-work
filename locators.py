@@ -10,6 +10,7 @@ class SabyMainPageLocators:
     """Локаторы для главной страницы Saby"""
     MENU_CONTACTS = (By.CSS_SELECTOR, ".sbisru-Header ul li:nth-child(2)")
     CONTACTS_PAGE = (By.CSS_SELECTOR, ".sbisru-Header-ContactsMenu__items .sbisru-link")
+    DOWNLOAD = (By.CSS_SELECTOR, 'a[href="/download"]')
 
 
 class SabyContactsLocators:
