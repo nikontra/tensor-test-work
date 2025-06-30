@@ -21,9 +21,17 @@ class ContactsSabyPage(BasePage):
 
     def should_be_region(self, location):
         region_name = WebDriverWait(self.browser, 10).until(
-            EC.element_to_be_clickable(SabyContactsLocators.REGION)
+            EC.visibility_of_element_located(SabyContactsLocators.REGION)
         )
+        print(region_name.text)
         assert region_name.text == location, "Регион определен не верно"
+
+    def should_be_edit_region(self, old_region, new_region):
+        WebDriverWait(self.browser, 10).until_not(
+            EC.text_to_be_present_in_element(SabyContactsLocators.REGION, old_region)
+        )
+        region = self.browser.find_element(*SabyContactsLocators.REGION)
+        assert region.text == new_region, "Регион принял неверное значение"
 
     def should_be_list_partners(self, partners):
         assert self.get_list_partners() == partners, "Список партнеров не корректен"

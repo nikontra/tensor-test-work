@@ -22,7 +22,7 @@ def test_edit_location(browser):
     page_contact.should_be_region(LOCATION)
     page_contact.should_be_list_partners(PARTNERS)
     page_contact.edit_region()
-    page_contact.should_be_region(NEW_LOCATION)
+    page_contact.should_be_edit_region(LOCATION, NEW_LOCATION)
     page_contact.should_be_edited_list_partners(PARTNERS)
     page_contact.should_be_correct_url(NEW_LOCATION_EN)
     page_contact.should_be_correct_title(NEW_LOCATION)
