@@ -16,10 +16,8 @@ class SabyContactsLocators:
     """Локаторы для страницы контактов Saby"""
     TENSOR_PAGE = (By.CSS_SELECTOR, "#contacts_clients .sbisru-Contacts__border-left a")
     REGION = (By.CSS_SELECTOR, ".sbisru-Contacts__underline .sbis_ru-Region-Chooser__text")
-    # NEW_REGION = (By.CSS_SELECTOR, 'ul.sbis_ru-Region-Panel__list-l li:nth-child(6)')
     NEW_REGION = (By.CSS_SELECTOR, 'ul.sbis_ru-Region-Panel__list-l li [title="Камчатский край"]')
     LIST_PARTNERS = (By.CSS_SELECTOR, ".sbisru-Contacts-List__name")
-
 
 class TensorMainLocators:
     """Локаторы для главной страницы Tensor"""
