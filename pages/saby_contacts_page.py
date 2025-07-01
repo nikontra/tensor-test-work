@@ -1,14 +1,15 @@
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 
-from .base_page import BasePage
 from locators import SabyContactsLocators
+from .base_page import BasePage
 
 
 class ContactsSabyPage(BasePage):
+    """Класс для методов страницы контактов сайта Saby"""
     def get_list_partners(self):
+        """Метод возвращает список партнеров"""
         WebDriverWait(self.browser, 10).until(
             EC.visibility_of_element_located(SabyContactsLocators.LIST_PARTNERS)
         )

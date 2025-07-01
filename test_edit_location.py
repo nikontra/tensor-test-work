@@ -1,8 +1,5 @@
-import time
-
-from pages.saby_main_page import SabyMainPage
 from pages.saby_contacts_page import ContactsSabyPage
-
+from pages.saby_main_page import SabyMainPage
 
 LINK_SABY = "https://saby.ru"
 LOCATION = "Костромская обл."

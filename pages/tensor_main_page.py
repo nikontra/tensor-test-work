@@ -1,9 +1,8 @@
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 
-from .base_page import BasePage
 from locators import TensorMainLocators
-
+from .base_page import BasePage
 
 NAME_BLOCK = "Сила в людях"
 

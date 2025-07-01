@@ -1,5 +1,6 @@
-from .tensor_main_page import TensorMainPage
 from locators import TensorAboutLocators
+from .tensor_main_page import TensorMainPage
+
 
 class TensorAboutPage(TensorMainPage):
     def should_be_link(self):

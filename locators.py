@@ -20,6 +20,7 @@ class SabyContactsLocators:
     NEW_REGION = (By.CSS_SELECTOR, 'ul.sbis_ru-Region-Panel__list-l li [title="Камчатский край"]')
     LIST_PARTNERS = (By.CSS_SELECTOR, ".sbisru-Contacts-List__name")
 
+
 class TensorMainLocators:
     """Локаторы для главной страницы Tensor"""
     STRENGTH_IN_PEOPLE = (By.CSS_SELECTOR, ".tensor_ru-Index__block4-bg p:nth-child(1)")
@@ -29,3 +30,10 @@ class TensorMainLocators:
 class TensorAboutLocators:
     """Локаторы для страницы 'О компании Тензор'"""
     IMAGES = (By.CSS_SELECTOR, ".tensor_ru-About__block3 img")
+
+
+class TensorDownloadLocators:
+    """Локаторы для страницы загрузок"""
+    DOWNLOAD_PLUGIN = (By.XPATH, '//div[@class="ws-SwitchableArea sbis_ru-VerticalTabs__area ws-enabled ws-component'
+                                 ' ws-has-focus"]//div[@class="ws-SwitchableArea__item ws-component'
+                                 ' ws-enabled ws-has-focus"]/div[2]//a')

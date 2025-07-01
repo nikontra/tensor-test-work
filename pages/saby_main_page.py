@@ -1,9 +1,8 @@
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 
-
-from .base_page import BasePage
 from locators import SabyMainPageLocators
+from .base_page import BasePage
 
 
 class SabyMainPage(BasePage):

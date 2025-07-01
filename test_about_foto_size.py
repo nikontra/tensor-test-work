@@ -1,7 +1,7 @@
-from pages.saby_main_page import SabyMainPage
-from pages.tensor_main_page import TensorMainPage
 from pages.saby_contacts_page import ContactsSabyPage
+from pages.saby_main_page import SabyMainPage
 from pages.tensor_about_page import TensorAboutPage
+from pages.tensor_main_page import TensorMainPage
 
 LINK_SABY = "https://saby.ru"
 
