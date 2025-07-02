@@ -7,7 +7,8 @@ from .base_page import BasePage
 
 
 class ContactsSabyPage(BasePage):
-    """Класс для методов страницы контактов сайта Saby"""
+    """Класс методов для страницы контактов сайта Saby"""
+
     def get_list_partners(self):
         """Метод возвращает список партнеров"""
         WebDriverWait(self.browser, 10).until(
@@ -17,10 +18,12 @@ class ContactsSabyPage(BasePage):
         return [i.text for i in list_partners]
 
     def go_to_tensor_page(self):
+        """Метод осуществляет переход на страницу сайта Tensor"""
         self.browser.find_element(*SabyContactsLocators.TENSOR_PAGE).click()
         self.browser.switch_to.window(self.browser.window_handles[1])
 
     def should_be_region(self, location):
+        """Метод проверяет правильно ли определен регион"""
         region_name = WebDriverWait(self.browser, 10).until(
             EC.visibility_of_element_located(SabyContactsLocators.REGION)
         )
@@ -28,6 +31,7 @@ class ContactsSabyPage(BasePage):
         assert region_name.text == location, "Регион определен не верно"
 
     def should_be_edit_region(self, old_region, new_region):
+        """Метод проверяет, изменился ли регион"""
         WebDriverWait(self.browser, 10).until_not(
             EC.text_to_be_present_in_element(SabyContactsLocators.REGION, old_region)
         )
@@ -35,9 +39,11 @@ class ContactsSabyPage(BasePage):
         assert region.text == new_region, "Регион принял неверное значение"
 
     def should_be_list_partners(self, partners):
+        """Метод проверяет, отображается ли список партнеров"""
         assert self.get_list_partners() == partners, "Список партнеров не корректен"
 
     def edit_region(self):
+        """Метод изменяет регион"""
         self.browser.find_element(*SabyContactsLocators.REGION).click()
         new_region = WebDriverWait(self.browser, 10).until(
             EC.element_to_be_clickable(SabyContactsLocators.NEW_REGION)
@@ -47,10 +53,13 @@ class ContactsSabyPage(BasePage):
         new_region.click()
 
     def should_be_edited_list_partners(self, partners):
+        """Метод проверяет, изменился ли список партнеров"""
         assert self.get_list_partners() != partners, "Список партнеров не изменился"
 
     def should_be_correct_url(self, name_region):
+        """Метод проверяет наличие названия региона в URL"""
         assert name_region in self.browser.current_url, "Название региона отсутствует в адресе страницы"
 
     def should_be_correct_title(self, name_region):
+        """Метод проверяет наличие названия региона в заголовке страницы"""
         assert name_region in self.browser.title, "Название региона отсутствует в заголовке страницы"
