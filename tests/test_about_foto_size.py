@@ -6,8 +6,7 @@ from pages.tensor_about_page import TensorAboutPage
 from pages.tensor_main_page import TensorMainPage
 from test_data.data import TestData
 
-logging.basicConfig(level=logging.DEBUG)
-mylogger = logging.getLogger()
+mylogger = logging.getLogger(__name__)
 
 
 def test_about_foto_size(browser):

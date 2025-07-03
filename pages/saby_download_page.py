@@ -7,8 +7,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from locators import TensorDownloadLocators
 from .base_page import BasePage
 
-logging.basicConfig(level=logging.DEBUG)
-mylogger = logging.getLogger()
+mylogger = logging.getLogger(__name__)
 
 
 class SabyDownloadPage(BasePage):
@@ -21,11 +20,13 @@ class SabyDownloadPage(BasePage):
         response.raise_for_status()
         with open(f'{filename}', 'wb') as file:
             file.write(response.content)
+        mylogger.info("File downloaded successfully")
 
     def download_file_by_click(self, filename):
         """Метод загружает файл через браузер"""
         self.browser.find_element(*TensorDownloadLocators.DOWNLOAD_PLUGIN).click()
         WebDriverWait(self.browser, 10).until(lambda _: filename in os.listdir("."))
+        mylogger.info("File downloaded successfully")
 
     @staticmethod
     def should_be_file(filename):
@@ -41,7 +42,9 @@ class SabyDownloadPage(BasePage):
 
     @staticmethod
     def delete_file(filename):
+        """Метод удаляет файл"""
         try:
             os.remove(filename)
         except OSError:
-            mylogger.info('Файл не найден')
+            mylogger.info("Файл не найден")
+        mylogger.info("File successfully deleted")
